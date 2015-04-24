@@ -90,8 +90,10 @@ module.controller("ProjectSheetCreateCtrl", ($rootScope, $scope, ProjectSheet, P
                     questionLabel : question.text
                     question : question.resource_uri
                     answer : ""
+                    choices: question.choices
                 )
             )
+            console.log("Q_A_item", $scope.QAItems)
             $scope.projectsheet.template = template.resource_uri
         )
 

@@ -5,7 +5,7 @@ angular.module('commons.ucomment', ['commons.ucomment.controllers', 'commons.uco
 angular.module('imagination.catalog', ['imagination.catalog.controllers'])
 angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.ucomment', 'commons.base', 
                                 'imagination.catalog',
-                                'restangular', 'ui.bootstrap', 'ui.router', 'xeditable', 'textAngular', 'angularjs-gravatardirective', 'angularFileUpload',
+                                'restangular', 'ui.bootstrap', 'ui.router', 'xeditable', 'checklist-model', 'textAngular', 'angularjs-gravatardirective', 'angularFileUpload',
                                 'ngSanitize', 'ngTagsInput', 'angularMoment', 'angular-unisson-auth', 'leaflet-directive', "angucomplete-alt", "videosharing-embed"
                                 'geocoder-service', 'ncy-angular-breadcrumb', 'truncate'])
 

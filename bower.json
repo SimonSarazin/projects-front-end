@@ -44,7 +44,8 @@
     "geocoder-service": "~0.0.2",
     "angular-breadcrumb": "~0.3.3",
     "angular-truncate": "*",
-    "bootstrap": "3.3.4"
+    "bootstrap": "3.3.4",
+    "checklist-model":"~0.2.4"
   },
   "resolutions": {
     "angular": "1.2.28"

@@ -8,7 +8,7 @@
 }
 
 .ta-editor.ta-html, .ta-scroll-window.form-control {
-    min-height: 300px;
+    min-height: 200px;
     height: auto;
     overflow: auto;
     font-family: inherit;
@@ -22,7 +22,7 @@
 
 .ta-scroll-window > .ta-bind {
     height: auto;
-    min-height: 300px;
+    min-height: 200px;
     padding: 6px 24px;
 }
 
