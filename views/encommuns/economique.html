@@ -1,0 +1,85 @@
+<div class="col-md-1">
+</div>
+<div class="col-md-10">
+
+
+<div id="content">
+
+                <tabset class="nav-tabs-project">
+                    <tab heading="Economie autour des communs (beta)">
+
+
+
+
+  </tab>
+  </tabset>
+  <p> Cet espace vise à présenter les liens économiques entre les acteurs utilisant les communs pour se développer et les communs. L'enjeu est double : A la fois afficher la contribution de l'acteur économique suite à l'usage du commun. Et permettre à ces derniers de devenir visibles afin d'être plus facilement référents lors de demandes de sollicitations pour travailler autour d'un commun
+               
+ 
+<br><br>
+<p>Voici quelques premières prestations économiques autour de communs analysées, afin de voir ce que les activités économiques ont apporté au commun. <div collapse="isCollapsed"></div>
+  <span ng-controller="CollapseCtrl">
+    <a href="" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-info-sign" ></span><small>  En savoir plus ?</small></a>
+    <div collapse="isCollapsed">
+    <div class="well well-lg">
+    Le budget du tableau ci dessous réflète l'usage de cette approche, en positionnant :<br><br>
+  - Une partie du financement au prestataire. Pour chaque besoin spécifique de la prestation qui ne trouve pas de réponse dans des communs, le prestataire va s'attribuer un budget afin soit d'améliorer le commun, soit adapter le commun pour les spécificités de la prestation. Vis à vis de ce buget, le prestataire indique ce qu'il va reverser en nature au "commun".
+  <br>
+  - Une partie des financements directement auprès de « communs ». Un financement dédié à un commun va à sa communauté qui utilise alors son propre modèle de répartition financier. Par exemple, chez wikipedia, le financement va à l'équipe de salarié de l'association alors que chez Gratipay.com, le financement va au collectif qui le redistribue grâce à <a href="https://gratipay.com/Gratipay/members/" target=_blank>un outil de répartition de la somme collectée selon les contributions.</a><br>
+  <br>En savoir plus sur <a href="http://unisson.co/prestation" target=_blank>la page wiki "prestation" du site unisson.co</a>
+    <br>  
+    </div> 
+    </div>
+  </span></p>
+  <br>
+  <br>
+    <div ng-repeat="prestation in prestations" class="table table-striped">
+
+    <span ng-controller="CollapseCtrl">
+    <span ng-click="isCollapsed = !isCollapsed">
+    <button type="button" class="btn btn-xs">
+      <span ng-if="isCollapsed" class="glyphicon glyphicon-chevron-right"></span> <span ng-if="!isCollapsed" class="glyphicon glyphicon-chevron-down"></span>
+        </button><strong>{{prestation.title}}</strong>
+    <div collapse="isCollapsed">
+    <div class="well well-lg">
+    <p>{{prestation.description}}</p><br>
+    <table class="table table-striped">
+        <tr>
+    <th>Module</th>
+    <th>Prestataire</th>
+    <th>Financement du prestataire</th>
+    <th>Commun sélectionné</th>
+    <th>Contribution en nature du prestataire au "commun"</th>
+    <th>Contribution financière du prestataire au "commun"</th>
+        </tr>
+        <!-- group members -->
+        <tr ng-repeat="module in prestation.modules">
+    
+   
+    <td><a href="{{ prestation.link }}" >{{ module.title }}</a></td>
+    <td>{{ module.provider }}</a></td>
+    <td>{{ module.providerretribution }}</td>
+    <td><p ng-repeat="projectprestation in module.project"><a href="/#/{{projectprestation.id }}">{{ projectprestation.title }}</a></td>
+    <td>{{ module.providersupport }}</td>
+    <td>{{ module.commonsretribution }}</td>
+    </tr>
+
+      </table>
+    <br>  
+    </div> 
+    </div>
+  </span>
+   
+    </div>
+
+
+  </div>
+
+
+
+  </div>
+
+  </div>
+
+
+

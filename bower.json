@@ -44,7 +44,8 @@
     "geocoder-service": "~0.0.2",
     "angular-breadcrumb": "~0.3.3",
     "angular-truncate": "*",
-    "bootstrap": "3.3.4"
+    "bootstrap": "3.3.4",
+    "ng-chartjs": "~0.0.5"
   },
   "resolutions": {
     "angular": "1.2.28"

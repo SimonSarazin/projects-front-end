@@ -1,14 +1,14 @@
 angular.module('commons.base', ['commons.base.controllers', 'commons.base.services'])
 angular.module('commons.catalog', ['commons.catalog.controllers', 'commons.catalog.services'])
+angular.module('commons.encommuns', ['commons.encommuns.controllers', 'commons.encommuns.services'])
 angular.module('commons.accounts', ['commons.accounts.services', 'commons.accounts.controllers', 'commons.account.directives'])
 angular.module('commons.ucomment', ['commons.ucomment.controllers', 'commons.ucomment.services'])
 angular.module('imagination.catalog', ['imagination.catalog.controllers'])
-angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.ucomment', 'commons.base', 
+angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.encommuns','commons.ucomment', 'commons.base', 
                                 'imagination.catalog',
                                 'restangular', 'ui.bootstrap', 'ui.router', 'xeditable', 'textAngular', 'angularjs-gravatardirective', 'angularFileUpload',
                                 'ngSanitize', 'ngTagsInput', 'angularMoment', 'angular-unisson-auth', 'leaflet-directive', "angucomplete-alt", "videosharing-embed"
                                 'geocoder-service', 'ncy-angular-breadcrumb', 'truncate'])
-
 # CORS
 .config(['$httpProvider', ($httpProvider) ->
         $httpProvider.defaults.useXDomain = true
@@ -18,7 +18,7 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.u
 # Tastypie
 .config((RestangularProvider) ->
         RestangularProvider.setBaseUrl(config.rest_uri)
-        RestangularProvider.setRequestSuffix('?format=json');
+        #RestangularProvider.setRequestSuffix('?format=json');
         # Tastypie patch
         RestangularProvider.setResponseExtractor((response, operation, what, url) ->
                 newResponse = null;
@@ -48,11 +48,12 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.u
 .config(['$locationProvider', '$stateProvider', '$urlRouterProvider', ($locationProvider, $stateProvider, $urlRouterProvider) ->
 
         $locationProvider.html5Mode(config.useHtml5Mode)
-        $urlRouterProvider.otherwise("/p/list")
+        $urlRouterProvider.otherwise("/")
+
 
         $stateProvider.state('home',
                 url: '/',
-                templateUrl: 'views/homepage.html',
+                templateUrl: 'views/encommuns/description.html',
                 ncyBreadcrumb:
                     label: 'Accueil'
         )
@@ -157,6 +158,34 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.u
         #             label: 'Recherche'
         #             parent : 'home'
         # )
+        .state('usages',
+                url: '/usages'
+                templateUrl: 'views/encommuns/usages.html'
+        )
+        .state('economique',
+                url:'/economique'
+                templateUrl:'views/encommuns/economique.html'
+                controller: 'PrestationManagerCtrl'
+        )
+        .state('commons',
+                url: '/c/'
+                abstract: true,
+                templateUrl : 'views/catalog/project.html'
+                ncyBreadcrumb:
+                    parent: 'home'
+        )
+        .state('commons.detail',
+                url: ':slug',
+                templateUrl: 'views/encommuns/project.detail.html',
+                controller : 'ImaginationProjectSheetCtrl'
+                ncyBreadcrumb:
+                    label: '{{project.title}}'
+                    parent : 'project.list'
+        )
+        .state('contribuer',
+                url:'/contribuer'
+                templateUrl:'views/encommuns/contribution.html'
+        )
 
 ])
 .run(($rootScope, editableOptions, editableThemes, amMoment, loginService, $state, $stateParams, CurrentProfileService) ->

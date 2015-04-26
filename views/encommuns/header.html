@@ -1,0 +1,82 @@
+<div id="header">
+
+    <header id="fixed-nav" data-spy="affix">
+        <nav id="menu" class="navbar" role="navigation">
+            <div class="container">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" ui-sref="home"><img src="http://lafabriquedesmobilites.fr/wp-content/themes/fabmob/images/fabmob-logo.svg" alt="Logo La Fabrique" height="61px"/></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a ui-sref="home" ng-class="{ selected: $state.includes('home') }">Accueil</a></li>
+                            <li><a ui-sref="usages" ng-class="{ selected: $state.includes('usages') }">Communs</a></li>
+                            <li><a class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Fonction disponible début mai :-)">Ajouter un "commun"</a></li>
+                            <li><a ui-sref="economique" ng-class="{ selected: $state.includes('economique') }" class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Approche économique encore en version alpha">Economique</a></li>
+                            <li><a class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Bientôt, parcourir ici les entreprises de la mobilité">Projets</a></li>
+                            <li><a ui-sref="contribuer" ng-class="{ selected: $state.includes('project.list') }">&nbsp; &nbsp; Contribuer</a></li>
+                        </ul>
+                        <!--
+                        <form class="navbar-right" ng-show="!authVars.isAuthenticated && !showLoginPanel">
+                            <button class="connect" ng-init="showLoginPanel=false" ng-click="showLoginPanel=true">Se connecter</button>
+                        </form>
+                        -->
+                        <p class="register-login" ng-show="!authVars.isAuthenticated">
+                            <button class="button" ng-click="forceLogin()">Se connecter</button>
+                        </p>
+                        <div class="dropdown dropdown-logged-in" ng-show="authVars.isAuthenticated">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                {{authVars.user.first_name || authVars.user.username }} 
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <!-- <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref="profile.detail({slug:currentMakerScienceProfile.slug})">Mon Profil</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Activités récentes</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref="profile.dashboard({slug:currentMakerScienceProfile.slug})">Mes paramètres</a></li> -->
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Aide</a></li>
+                                <li role="presentation"><a ng-click="logout()" role="menuitem" tabindex="-1" href="#">Me déconnecter</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Showing when loggin in and when logged in -->
+                        <!--<form method="post" class="" role="search">
+                            <ng-include src="'/views/base/search.html'"></ng-include>
+                        </form>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </div><!-- .container -->
+        </nav><!-- #menu -->
+    </header>
+
+
+<!--
+
+    <div class="crumbs" ng-hide="$state.includes('home')">
+        <div class="container">
+            <div ncy-breadcrumb></div>
+        </div>
+    </div>
+-->
+
+</div><!-- #header -->
+
+<!-- DEBUG #FIXME -->
+<script type="text/javascript">
+$('#fixed-nav').affix({
+  offset: {
+    top: 115,
+    bottom: function () {
+      return (this.bottom = $('.footer').outerHeight(true))
+    }
+  }
+})
+</script>
+
+
+
+    
