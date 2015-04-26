@@ -10,11 +10,11 @@
     <div id="content" class="tags">
         <div class="col-md-12">
 
-            <div ng-controller="MakerScienceObjectGetter">
+            <div ng-controller="ObjectGetter">
 
                 <h2 class="projects clear"><span class="glyphicon glyphicon-tasks"></span> Projets</h2>
                 <div class="boxes boxes-medium">
-                    <div class="box" ng-repeat="item in projectItems = (taggedItems| filter:{object_type_name:'makerscienceproject'})">
+                    <div class="box" ng-repeat="item in projectItems = (taggedItems| filter:{object_type_name:'project'})">
                         <div ng-init="getObject(item.object_type_name, item.object_id)">
                             <ng-include src="'views/catalog/block/project_thumb.html'"></ng-include>
                         </div>

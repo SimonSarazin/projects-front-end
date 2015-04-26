@@ -1,4 +1,5 @@
 
+
 <div class="row container">
 
     <div id="content" class="listing" ng-controller="ProjectSheetListCtrl"  ng-init="init(12)">
@@ -9,7 +10,7 @@
                 <div class="col-md-9">
 
                     <tabset class="nav-tabs-listing">
-                        <tab heading="Apperçu">
+                        <tab heading="Aperçu">
                             <div class="boxes boxes-small boxes-projects" >
                                 <div class="box" ng-repeat="projectsheet in projectsheets">
                                     <ng-include src="'views/catalog/block/project_thumb.html'" ng-init="project=projectsheet.project; cover=projectsheet.cover"></ng-include>

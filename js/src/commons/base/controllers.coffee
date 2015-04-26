@@ -40,6 +40,20 @@ module.controller("AbstractListCtrl", ($scope, FilterService) ->
             )
 )
 
+
+module.controller("ObjectGetter", ($scope, Project, Profile) ->
+
+    $scope.getObject = (objectTypeName, objectId) ->
+        if objectTypeName == 'project'
+            Project.one(objectId).get().then((ProjectResult) ->
+                $scope.project = ProjectResult
+            )
+        if objectTypeName == 'profile'
+            Profile.one(objectId).get().then((ProfileResult) ->
+                $scope.profile = ProfileResult
+            )
+)
+
 module.controller("FilterCtrl", ($scope, $stateParams, Tag, FilterService) ->
 
     console.log(" Init Filter Ctrl , state param ? ", $stateParams)
