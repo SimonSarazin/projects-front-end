@@ -16,10 +16,10 @@
                         <ul class="nav navbar-nav">
                             <li><a ui-sref="home" ng-class="{ selected: $state.includes('home') }">Accueil</a></li>
                             <li><a ui-sref="usages" ng-class="{ selected: $state.includes('usages') }">Communs</a></li>
-                            <li><a class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Fonction disponible début mai :-)">Ajouter un "commun"</a></li>
-                            <li><a ui-sref="economique" ng-class="{ selected: $state.includes('economique') }" class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Approche économique encore en version alpha">Economique</a></li>
-                            <li><a class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Bientôt, parcourir ici les entreprises de la mobilité">Projets</a></li>
+                            <li><a ui-sref="project.new" ng-class="{selected: $state.includes('project.new')}">Ajouter un "commun"</a></li>
+                            <li><a ui-sref="project.list" ng-class="{ selected: $state.includes('project.list') }" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Bientôt, parcourir ici les entreprises de la mobilité">Projets</a></li>
                             <li><a ui-sref="contribuer" ng-class="{ selected: $state.includes('project.list') }">&nbsp; &nbsp; Contribuer</a></li>
+                             <li><a ui-sref="economique" ng-class="{ selected: $state.includes('economique') }" class="preview" ng-controller="TooltipCtrl" tooltip-placement="bottom" tooltip="Approche économique encore en version alpha">Economique</a></li>
                         </ul>
                         <!--
                         <form class="navbar-right" ng-show="!authVars.isAuthenticated && !showLoginPanel">

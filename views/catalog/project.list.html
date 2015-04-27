@@ -10,7 +10,7 @@
                 <div class="col-md-9">
 
                     <tabset class="nav-tabs-listing">
-                        <tab heading="Aperçu">
+                        <tab heading="Les projet accompagnés de la Fabrique des Mobilités">Cette page est juste un test et n'affiche pas encore les projets accompagnés. Les projets affichés sont des exemples afin de réfléchir à la manière d'utiliser cet outil pour mieux accompagner collectivement les projets de la Fabrique des Mobilités<br><br>
                             <div class="boxes boxes-small boxes-projects" >
                                 <div class="box" ng-repeat="projectsheet in projectsheets">
                                     <ng-include src="'views/catalog/block/project_thumb.html'" ng-init="project=projectsheet.project; cover=projectsheet.cover"></ng-include>
@@ -18,25 +18,26 @@
                             </div><!-- .boxes -->
                             
                         </tab>
-                        <tab heading="Détaillés">
+                        <!--<tab heading="Détaillés">
                             ... coming soon
                             <div class="boxes boxes-small boxes-projects" >
                                 <div class="box" ng-repeat="projectsheet in projectsheets">
                                     <ng-include src="'views/catalog/block/project_thumb.html'" ng-init="project=projectsheet.project"></ng-include>
-                                </div><!-- .box -->
-                            </div><!-- .boxes -->
+                                </div><!-- .box 
+                            </div><!-- .boxes 
                         </tab>
                         <tab heading="Carte">
                             ... coming soon
-                        </tab>
-                    </tabset>
+                        </tab>--> 
+
+                    </tabset> 
                     <button ng-show="seeMore" class="button" style="float:right; margin-right:46%;" ng-click="loadMore()"> Voir plus </button>
                     <a ui-sref="project.new" class="large large-red">Créer un projet</a>
 
                 </div>
                 <div class="col-md-3">
                     <ng-include onload="objectType='project'" src="'views/catalog/block/filters.html'"></ng-include>
-                </div>
+                </div>-->
 
         </div><!-- .col-md-12 -->
 
