@@ -33,9 +33,9 @@ module.controller('TooltipCtrl', ($scope) ->
 )
 
 class ListUsageManagerCtrl
-        constructor: (@$scope, @Pertinences) ->
+        constructor: (@$scope, @Usages) ->
                 @$scope.usages = @Pertinences.getList().$object 
-module.controller("ListUsageManagerCtrl", ['$scope', 'Pertinences', ListUsageManagerCtrl])
+module.controller("ListUsageManagerCtrl", ['$scope', 'Usages', ListUsageManagerCtrl])
 
 
 module.controller("DetailUsageManagerCtrl", ($scope, OneUsage) ->
