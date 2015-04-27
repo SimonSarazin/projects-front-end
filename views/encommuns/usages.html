@@ -31,8 +31,8 @@
 			</tr>
 			<!-- group members -->
 			<tr ng-repeat="project in detailledUsage.project">
-				<td><a href="/#/{{project.id}}">{{ project.title }}</a></td>
-				<td><a href="/#/{{project.id}}"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+				<td><a href="/#/c/{{project.slug}}">{{ project.title }}</a></td>
+				<td><a href="/#/c/{{project.slug}}"><span class="glyphicon glyphicon-info-sign"></span></a></td>
 				<td><p ng-repeat="label in project.tools | filter: 'présentiel'">{{ label.description }}</p></td>
 				<td>
 				<!-- <button type="button" class="btn btn-xs btn-info" ng-click="">Accéder à sa page web</button>-->
