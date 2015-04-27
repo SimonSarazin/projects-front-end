@@ -4,7 +4,7 @@
 <link rel='stylesheet' href='css/textAngular.css'>
 
 <div class="sidebar-filters sidebar-projects" ng-controller="FilterCtrl" ng-init="load(objectType)">
-    <h4>Filtrage Thématique</h4>
+    <!--<h4>Filtrage Thématique</h4>
     <div class="" style="width:100%; padding-bottom:10px;">
         <div class="" ng-controller="TagAutoCompleteCtrl">
             <tags-input ng-model="tags_filter"
@@ -14,7 +14,7 @@
                         <auto-complete source="loadTags($query)"></auto-complete>
             </tags-input>
         </div>
-    </div><!-- /input-group -->
+    </div><!-- /input-group 
     <ul class="tags tags-project">
         <li ng-repeat="tag in suggestedTags | limitTo:16">
             <a href="" ng-click="addToTagsFilter(tag)">{{tag.name}}</a>

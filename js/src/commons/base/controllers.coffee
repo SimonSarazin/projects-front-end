@@ -74,9 +74,11 @@ module.controller("FilterCtrl", ($scope, $stateParams, Tag, FilterService) ->
         tags_list = []
         for tag in $scope.tags_filter
             tags_list.push(tag.text)
-        FilterService.filterParams.tags = tags_list
+        FilterService.filterParams.tags = 'fabmob'
         FilterService.filterParams.query = $scope.query_filter
         console.log("AFTER refreshing filter (ctrler).. ", FilterService.filterParams)
+    
+
 
     $scope.addToTagsFilter = (aTag)->
         simpleTag =
@@ -84,4 +86,5 @@ module.controller("FilterCtrl", ($scope, $stateParams, Tag, FilterService) ->
         if $scope.tags_filter.indexOf(simpleTag) == -1
             $scope.tags_filter.push(simpleTag)
         $scope.refreshFilter()
+    $scope.refreshFilter()
 )

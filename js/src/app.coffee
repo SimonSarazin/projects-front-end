@@ -186,6 +186,13 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.e
                 url:'/contribuer'
                 templateUrl:'views/encommuns/contribution.html'
         )
+        .state('commons.new',
+                url: 'newcommons',
+                templateUrl: 'views/encommuns/commons.new.html',
+                ncyBreadcrumb:
+                    label: 'Nouveau commun'
+                    parent : 'project.list'
+        )
 
 ])
 .run(($rootScope, editableOptions, editableThemes, amMoment, loginService, $state, $stateParams, CurrentProfileService) ->
