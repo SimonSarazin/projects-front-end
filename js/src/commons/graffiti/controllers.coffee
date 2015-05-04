@@ -11,6 +11,8 @@ module.controller("TagAutoCompleteCtrl", ($scope, $q, Tag) ->
         deferred = $q.defer()
         availableTags = []
         angular.forEach(tags.$object, (tag) ->
+            tag.name = tag.name.toLowerCase()
+            query = query.toLowerCase()
             if tag.name.indexOf(query) > -1
                 tmpTag =
                     'text' : tag.name

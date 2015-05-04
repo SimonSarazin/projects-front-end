@@ -6,7 +6,7 @@
 <div ng-init='init()'>
 
     <ul id="sidenav" class="project">
-        <li ><a ng-click="editable = ! editable" ng-init="editable=false" ng-class="{selected: editable}"><span class="glyphicon glyphicon-pencil"></span></a></li>
+        <li ><a ng-click="editable = ! editable; populateQuestions()" ng-init="editable=false" ng-class="{selected: editable}"><span class="glyphicon glyphicon-pencil"></span></a></li>
         <li><a href=""><span class="glyphicon glyphicon-share-alt"></span></a></li>
         <li><a href=""><span class="glyphicon glyphicon-envelope"></span></a></li>
     </ul><!-- #nav -->
@@ -140,9 +140,19 @@
 
                         </section>
                         <!--  FIXME : questions answers / templates -->
-                        <section ng-repeat="item in projectsheet.question_answers">
+                        <section ng-repeat="item in projectsheet.question_answers" ng-show="item.answer.length > 0 || editable">
                             <h3>{{item.question.text}}</h3>
-                            <div class="edit-buttons" ng-click="AnswerBtnForm.$show()" ng-hide="AnswerBtnForm.$visible || !editable" ng-show="editable">
+                            <div ng-if="item.question.choices.length > 0" class="choices">
+                                <form name="choiceForm" >
+                                    <label ng-repeat="choice in item.question.choices">
+                                        <input type="checkbox" checklist-model="item.selected_choices_id" checklist-value="choice.id" ng-disabled="!editable"> {{ choice.text }}
+                                    </label>
+                                    <button type="button" class="btn btn-primary" ng-show="choiceForm.$dirty"
+                                        ng-click="updateProjectSheet('ProjectSheetQuestionAnswer', item.id , 'selected_choices_id', item.selected_choices_id); choiceForm.$setPristine();">Valider les choix</button>
+                                </form>
+                                <h5> Commentaire :</h5>
+                            </div>
+                            <div class="edit-buttons edit-question" ng-click="AnswerBtnForm.$show()" ng-hide="AnswerBtnForm.$visible || !editable" ng-show="editable">
                                 <button><span class="glyphicon glyphicon-pencil"></span></button>
                             </div>
                             <p editable-text-angular="item.answer"

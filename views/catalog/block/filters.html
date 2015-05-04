@@ -11,7 +11,7 @@
                         placeholder="> Mot-clé"
                         on-tag-added="refreshFilter()"
                         on-tag-removed="refreshFilter()">
-                        <auto-complete source="loadTags($query)"></auto-complete>
+                        <auto-complete source="loadTags($query)" min-length="1"></auto-complete>
             </tags-input>
         </div>
     </div><!-- /input-group 

@@ -77,16 +77,23 @@
                         <text-angular name="project-about"
                                       ta-toolbar="[['bold','italics', 'underline'], ['ul', 'ol'], ['insertLink']]"
                                       ng-model="projectsheet.project.description"
-                                      e-rows="4">
+                                      e-rows="1">
                         </text-angular>
                     </fieldset>
 
                     <fieldset class="new-project" ng-repeat="item in QAItems">
                         <h4>{{item.questionLabel}}</h4>
-                        <text-angular ng-model="item.answer"
-                                      ta-toolbar="[['bold','italics', 'underline'], ['ul', 'ol'], ['insertLink']]"
-                                      name="question_{{$index}}"
-                                      e-rows="4">
+                        <div ng-if="item.choices.length > 0" class="choices">
+                            <label ng-repeat="choice in item.choices">
+                                <input type="checkbox" checklist-model="item.selected_choices_id" checklist-value="choice.id"> {{ choice.text }}
+                            </label>
+                            <h5> Vous pouvez ajouter un commentaire </h5>
+                        </div>
+                        <text-angular 
+                                    ng-model="item.answer"
+                                    ta-toolbar="[['bold','italics', 'underline'], ['ul', 'ol'], ['insertLink']]"
+                                    name="question_{{$index}}"
+                                    e-rows="0">
                         </text-angular>
                     </fieldset>
 

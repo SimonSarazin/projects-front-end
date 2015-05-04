@@ -7,7 +7,7 @@
                     placeholder="> Mot-clé"
                     on-tag-added="addTag(objectTypeName, taggedObject.id, $tag)"
                     on-tag-removed="removeTag($tag)">
-                    <auto-complete source="loadTags($query)"></auto-complete>
+                    <auto-complete source="loadTags($query)" min-length="1"></auto-complete>
         </tags-input>
     </div>
     <div ng-show="editTag==false">

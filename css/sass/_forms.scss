@@ -389,6 +389,7 @@
 					input, textarea {
 						@include placeholder($color-blue);
 					}
+                    
 				}
 				button.button {
 					background-color: $color-blue;
@@ -585,4 +586,21 @@ form.mapsearch {
 
 section.video form p:first-child {
 	margin: $grid-gutter-width / 2 0;
+}
+
+div.choices{
+    label{
+        display: block;
+        padding-left: 15px;
+        text-indent: -15px;
+        }
+    input{
+        vertical-align: bottom;
+        position: relative;
+        top: -1px;
+        margin: 0;
+        width: 13px;
+        height: 13px;
+    }
+    
 }

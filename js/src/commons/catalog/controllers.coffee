@@ -90,8 +90,10 @@ module.controller("ProjectSheetCreateCtrl", ($rootScope, $scope, ProjectSheet, P
                     questionLabel : question.text
                     question : question.resource_uri
                     answer : ""
+                    choices: question.choices
                 )
             )
+            console.log("Q_A_item", $scope.QAItems)
             $scope.projectsheet.template = template.resource_uri
         )
 
@@ -106,6 +108,7 @@ module.controller("ProjectSheetCreateCtrl", ($rootScope, $scope, ProjectSheet, P
             angular.forEach($scope.QAItems, (q_a) ->
                 q_a.projectsheet = projectsheetResult.resource_uri
                 q_a.projectsheet_id = projectsheetResult.id
+                console.log("current QA_item", q_a)
                 ProjectSheetQuestionAnswer.post(q_a)
             )
             return projectsheetResult
