@@ -9,17 +9,19 @@
 
             <div id="content" class="new-project">
 
-                <h2>Créer un projet</h2>
-                <p>Ce formulaire vous permet de décrire en détails votre projet. Tous les champs ne sont pas obligatoires et peuvent être modifiés par la suite si vous n'avez pas beaucoup de temps.<p>
+                <h2>Ajouter un "commun"</h2>
+                <p>Ce formulaire vous permet de décrire en détails votre "commun". Tous les champs ne sont pas obligatoires et peuvent être modifiés par la suite si vous n'avez pas beaucoup de temps.<p>
                 
-                <h3>Nouveau projet</h3>
+                <p> Dans cette phase de test, pour ajouter un commun, il vous faut être connecté et avoir demandé les droits d'édition par mail à simons@simons.fr . Une fois le commun ajouté, une validation du collectif  de la fabrique permettra de l'ajouter à la liste des "communs" de ce site.<p>
+                
+                <h3>Nouveau commun repéré</h3>
 
-                <form name="newProjectForm" novalidate ng-controller="ImaginationProjectSheetCreateCtrl" ng-init="init('accompagnement'); submitted=false" ng-submit="saveImaginationProject(newProjectForm.$valid)" ng-class="{ 'has-error' : newProjectForm.$invalid && submitted }">
+                <form name="newProjectForm" novalidate ng-controller="ImaginationProjectSheetCreateCtrl" ng-init="init('unisson'); submitted=false" ng-submit="saveImaginationProject(newProjectForm.$valid)" ng-class="{ 'has-error' : newProjectForm.$invalid && submitted }">
                     <div class="row">
                         <div class="col-md-8">
 
                             <fieldset class="fake-placeholder">
-                                <h4>Nom du projet</h4>
+                                <h4>Nom du "commun"</h4>
                                 <input type="text"
                                        name="projectName"
                                        ng-model="projectsheet.project.title" required/>
@@ -27,17 +29,17 @@
                            </fieldset>
 
                             <fieldset class="fake-placeholder">
-                                <h4>Résumez votre projet en une courte phrase</h4>
+                                <h4>Résumez le but de ce commun en une courte phrase</h4>
                                 <input type="text"
                                            name="projectBaseline"
                                            ng-model="projectsheet.project.baseline" required/>
                                 <p ng-show="newProjectForm.projectBaseline.$invalid && submitted" class="help-block">Courte description du projet requise</p>
                            </fieldset>
 
-                            <fieldset class="fake-placeholder">
+                            <fieldset value='fabmob' class="fake-placeholder">
                                 <div ng-controller="TagAutoCompleteCtrl">
-                                    <h4>Quels sont les mots-clés associés à votre projet ? (thématiques, type de projet, outils...)</h4>
-                                    <tags-input ng-model="tags"
+                                    <h4>Quels sont les mots-clés associés à ce commun ? (thématiques, type de projet, outils...).</h4>
+                                    <tags-input value='fabmob' ng-model="tags"
                                                 placeholder="> Mot-clé">
                                       <auto-complete source="loadTags($query)"></auto-complete>
                                     </tags-input>
@@ -81,8 +83,26 @@
                         </text-angular>
                     </fieldset>
 
-                    <fieldset class="new-project" ng-repeat="item in QAItems">
+                    <fieldset ng-controller="HelpfulTipsManagerCtrl" class="new-project" ng-repeat="item in QAItems">
+           
                         <h4>{{item.questionLabel}}</h4>
+                             <div ng-repeat="tips in helpfultips">
+                              <div ng-if="item.questionLabel == tips.ingredient">
+                                 <b>{{ tips.baseline }}</b>
+                                 <span ng-controller="CollapseCtrl">
+                                    <a href="" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-info-sign" ></span><small>  (Aide pour comprendre la question)</small></a>
+                                    <div collapse="isCollapsed">
+                                    <div class="well well-lg">
+                                        <b>Description -> </b>{{ tips.description }}<br>
+                                        <b>Intérêt -> </b>{{ tips.interest }}  <br>
+                                        <b>Exemples -> </b>{{ tips.example }}  <br>
+                                        <b>Fiche descriptive -> </b><a href="{{tips.wikipage}}">{{tips.ingredient}}</a>  
+                                        <br>  
+                                    </div> 
+                                    </div>
+                                 </span>
+                              </div>
+                            </div>
                         <text-angular ng-model="item.answer"
                                       ta-toolbar="[['bold','italics', 'underline'], ['ul', 'ol'], ['insertLink']]"
                                       name="question_{{$index}}"
@@ -98,9 +118,7 @@
                          -->
                         <button type="submit" class="button" ng-click="submitted=true">Enregistrer</button>
                     </p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }" style="width: 0%;"></div>
-                    </div>
+                
                 </form>
 
             </div><!-- #content -->

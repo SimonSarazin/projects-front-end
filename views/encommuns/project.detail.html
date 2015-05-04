@@ -124,7 +124,7 @@
 
                 <tabset class="nav-tabs-project">
                     <tab heading="{{project.title}} - {{ project.baseline }}">
-                                               <ng-include onload="taggedObjectTypeName='project'" src="'views/catalog/block/tags_widget.html'"></ng-include>
+                        <ng-include onload="taggedObjectTypeName='project'" src="'views/catalog/block/tags_widget.html'"></ng-include>
                         <section>
                             <div class="edit-buttons" ng-click="DescBtnForm.$show()" ng-hide="DescBtnForm.$visible || !editable" ng-show="editable">
                                 <button> <span class="glyphicon glyphicon-pencil"></span></button>
@@ -141,9 +141,18 @@
 
                         </section>
                         <!--  FIXME : questions answers / templates -->
-                        <section ng-controller="HelpfulTipsManagerCtrl" ng-repeat="item in projectsheet.question_answers">
-
+                        <section ng-controller="HelpfulTipsManagerCtrl" ng-repeat="item in projectsheet.question_answers" ng-show="item.answer.length > 0 || editable">
                             <h3>{{item.question.text}} </h3>
+                            <div ng-if="item.question.choices.length > 0" class="choices">
+                                <form name="choiceForm" >
+                                    <label ng-repeat="choice in item.question.choices">
+                                        <input type="checkbox" checklist-model="item.selected_choices_id" checklist-value="choice.id" ng-disabled="!editable"> {{ choice.text }}
+                                    </label>
+                                    <button type="button" class="btn btn-primary" ng-show="choiceForm.$dirty"
+                                        ng-click="updateProjectSheet('ProjectSheetQuestionAnswer', item.id , 'selected_choices_id', item.selected_choices_id); choiceForm.$setPristine();">Valider les choix</button>
+                                </form>
+                                <h5> Commentaire :</h5>
+                            </div>
                             <div ng-repeat="tips in helpfultips">
                               <div ng-if="item.question.text == tips.ingredient">
                                  <b>{{ tips.baseline }}</b>

@@ -59,8 +59,9 @@ module.controller("FilterCtrl", ($scope, $stateParams, Tag, FilterService) ->
     console.log(" Init Filter Ctrl , state param ? ", $stateParams)
     $scope.objectType = 'project'
     $scope.suggestedTags = Tag.getList().$object
-    $scope.tags_filter = []
-    $scope.query_filter = ''
+    $scope.tags_filter = ['fabmob']
+    $scope.query_filter = 'fabmob'
+    FilterService.filterParams.tags = 'fabmob'
 
     $scope.load = (objectType)->
         console.log("loading filter on ", objectType)
@@ -77,8 +78,6 @@ module.controller("FilterCtrl", ($scope, $stateParams, Tag, FilterService) ->
         FilterService.filterParams.tags = 'fabmob'
         FilterService.filterParams.query = $scope.query_filter
         console.log("AFTER refreshing filter (ctrler).. ", FilterService.filterParams)
-    
-
 
     $scope.addToTagsFilter = (aTag)->
         simpleTag =

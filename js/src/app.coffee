@@ -57,27 +57,27 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.e
                 ncyBreadcrumb:
                     label: 'Accueil'
         )
-        .state('project',
+        .state('projectfabmob',
                 url: '/p/'
                 abstract: true,
                 templateUrl : 'views/catalog/project.html'
                 ncyBreadcrumb:
                     parent: 'home'
         )
-        .state('project.list',
+        .state('projectfabmob.list',
                 url: 'list',
                 templateUrl: 'views/catalog/project.list.html',
                 ncyBreadcrumb:
                     label: 'Projets'
         )
-        .state('project.new',
+        .state('projectfabmob.new',
                 url: 'new',
                 templateUrl: 'views/catalog/project.new.html',
                 ncyBreadcrumb:
                     label: 'Nouveau projet'
                     parent : 'project.list'
         )
-        .state('project.detail',
+        .state('projectfabmob.detail',
                 url: ':slug',
                 templateUrl: 'views/catalog/project.detail.html',
                 controller : 'ImaginationProjectSheetCtrl'
@@ -167,14 +167,14 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.e
                 templateUrl:'views/encommuns/economique.html'
                 controller: 'PrestationManagerCtrl'
         )
-        .state('commons',
+        .state('project',
                 url: '/c/'
                 abstract: true,
                 templateUrl : 'views/catalog/project.html'
                 ncyBreadcrumb:
                     parent: 'home'
         )
-        .state('commons.detail',
+        .state('project.detail',
                 url: ':slug',
                 templateUrl: 'views/encommuns/project.detail.html',
                 controller : 'ImaginationProjectSheetCtrl'
@@ -186,7 +186,7 @@ angular.module('imagination', ['commons.catalog', 'commons.accounts', 'commons.e
                 url:'/contribuer'
                 templateUrl:'views/encommuns/contribution.html'
         )
-        .state('commons.new',
+        .state('project.new',
                 url: 'newcommons',
                 templateUrl: 'views/encommuns/commons.new.html',
                 ncyBreadcrumb:
