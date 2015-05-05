@@ -72,9 +72,9 @@ module.controller("FilterCtrl", ($scope, $stateParams, Tag, FilterService) ->
         Update FilterService data
         """
         console.log("refreshing filter (ctrler).. ", FilterService.filterParams)
-        tags_list = []
+        tags_list = ['fabmob']
         for tag in $scope.tags_filter
-            tags_list.push(tag.text)
+            tags_list.push('fabmob')
         FilterService.filterParams.tags = 'fabmob'
         FilterService.filterParams.query = $scope.query_filter
         console.log("AFTER refreshing filter (ctrler).. ", FilterService.filterParams)
