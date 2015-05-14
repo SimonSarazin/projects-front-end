@@ -5,7 +5,7 @@ marked.type = "text/javascript";
 marked.src = "http://multibao.meteor.com/integration/marked.min.js";
 document.body.appendChild(marked);
 
-jsonp( 'https://api.github.com/repos/monjob/contributions/contents/contributions/{contribution}?{callback}', function(response) {
+jsonp( 'https://api.github.com/repos/monjob/monjob/contents/contributions/{contribution}?{callback}', function(response) {
   var content = response.data.content.replace(/\s/g, '');
 
   document.querySelector('#multibao').innerHTML = marked(decodeURIComponent(escape(atob(content))));
